@@ -4,10 +4,13 @@ var db = require('../queries');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Life' });
+  db.getAll()
+  .then( data => {
+  res.render('index', { title: 'Afterlife', data:data[0] });
+  })
 });
 
-router.get('/api/puppies', db.getAllPuppies);
+router.get('/api/puppies', db.getAll);
 router.get('/api/puppies/:id', db.getSinglePuppy);
 router.post('/api/puppies', db.createPuppy);
 router.put('/api/puppies/:id', db.updatePuppy);

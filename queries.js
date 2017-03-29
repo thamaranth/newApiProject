@@ -2,19 +2,8 @@ var pgp = require('pg-promise')();
 var connectionString = 'postgres://localhost:5432/puppies';
 var db = pgp(connectionString);
 
-function getAllPuppies(req, res, next) {
-  db.any('select * from pups')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved ALL puppies'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
+function getAllPuppies() {
+  return db.any('select * from pups')
 }
 
 function getSinglePuppy(req, res, next) {
@@ -84,7 +73,7 @@ function removePuppy(req, res, next) {
 }
 
 module.exports = {
-  getAllPuppies: getAllPuppies,
+  getAll: getAllPuppies,
   getSinglePuppy: getSinglePuppy,
   createPuppy: createPuppy,
   updatePuppy: updatePuppy,
