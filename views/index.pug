@@ -2,4 +2,12 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title} #{data.name}
+  p Welcome to #{title}
+
+  -for (pup of data){
+    h3= 'name'
+    p #{pup.name}
+    p #{pup.age}
+    p #{pup.breed}
+    p #{pup.sex}
+  -}
