@@ -3,10 +3,14 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  
+
   -for (pup of data){
+    h3= 'name'
     p #{pup.name}
+    h3= 'age'
     p #{pup.age}
+    h3= 'breed'
     p #{pup.breed}
+    h3= 'sex'
     p #{pup.sex}
   -}
