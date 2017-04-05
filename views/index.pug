@@ -1,5 +1,23 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title} #{data.name}
+  .header
+    p Welcome to #{title}
+    .main
+  hr
+  table.table(style='width:80%')
+    tr
+      th name
+      th age
+      th breed
+      th sex
+    tr
+    if data
+    -for (pup of data){
+    tr
+      td #{pup.name}
+      td #{pup.age}
+      td #{pup.breed}
+      td #{pup.sex}
+    tr
+      -}

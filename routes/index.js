@@ -6,7 +6,7 @@ var db = require('../queries');
 router.get('/', function(req, res, next) {
   db.getAll()
   .then( data => {
-  res.render('index', { title: 'life', data:data[0] });
+  res.render('index', { title: 'life', data });
   })
 });
 
