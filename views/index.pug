@@ -1,16 +1,25 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
 
-  -for (pup of data){
-    h3= 'name'
-    p #{pup.name}
-    h3= 'age'
-    p #{pup.age}
-    h3= 'breed'
-    p #{pup.breed}
-    h3= 'sex'
-    p #{pup.sex}
-  -}
+  .header
+    p Welcome to #{title}
+    .main
+  hr
+  table.table(style='width:80%')
+    tr
+      th name
+      th age
+      th breed
+      th sex
+    tr
+    if data
+    -for (pup of data){
+    tr
+      td #{pup.name}
+      td #{pup.age}
+      td #{pup.breed}
+      td #{pup.sex}
+    tr
+      -}
+
